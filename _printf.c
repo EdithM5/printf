@@ -1,11 +1,9 @@
 #include "main.h"
-
 /**
-* _printf - function that prints based on format specifier
-* @format: takes in format specifier
-* Return: return pointer to index
-*/
-
+  * _printf - function that prints based on format specifier
+  * @format: takes in format specifier
+  * Return: return pointer to index
+  */
 int _printf(const char *format, ...)
 {
 	char buffer[1024];
