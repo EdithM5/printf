@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /************************* PRINT CHAR *************************/
 /**
 * print_char - Prints a char
@@ -40,34 +39,22 @@ int print_string(va_list types, char buffer[],
 
 	char *str = va_arg(types, char *);
 
-
 	UNUSED(buffer);
-
 	UNUSED(flags);
-
 	UNUSED(width);
-
 	UNUSED(precision);
-
 	UNUSED(size);
 
 	if (str == NULL)
 	{
 		str = "(null)";
-
 		if (precision >= 6)
-
 			str = "      ";
 	}
-
 	while (str[length] != '\0')
 		length++;
-
 	if (precision >= 0 && precision < length)
-
 		length = precision;
-
-
 	if (width > length)
 	{
 		if (flags & F_MINUS)
@@ -80,11 +67,8 @@ int print_string(va_list types, char buffer[],
 		else
 		{
 			for (i = width - length; i > 0; i--)
-
 			write(1, " ", 1);
-
 			write(1, &str[0], length);
-
 			return (width);
 		}
 	}
@@ -157,7 +141,6 @@ int print_int(va_list types, char buffer[],
 
 	num = (unsigned long int)n;
 
-
 	if (n < 0)
 	{
 		num = (unsigned long int)((-1) * n);
@@ -166,16 +149,13 @@ int print_int(va_list types, char buffer[],
 	}
 
 	while (num > 0)
-
 	{
 		buffer[i--] = (num % 10) + '0';
 
 		num /= 10;
 	}
 
-
 	i++;
-
 
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 
@@ -203,7 +183,6 @@ int print_binary(va_list types, char buffer[],
 	unsigned int a[32];
 
 	int count;
-
 
 	UNUSED(buffer);
 
